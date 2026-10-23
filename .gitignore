@@ -1,0 +1,7 @@
+backend/.env
+backend/vendor/
+backend/storage/logs/
+backup/
+*.sql
+mobile/build/
+mobile/.dart_tool/
