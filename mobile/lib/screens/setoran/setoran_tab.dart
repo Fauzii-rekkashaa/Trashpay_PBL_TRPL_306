@@ -28,7 +28,7 @@ class JenisSampahItem {
   final String satuan; // 'kg' atau 'L'
   final IconData icon;
   final Color warna;
-  final String? fotoAsset; // contoh: assets/images/sampah/plastik.png (opsional)
+  final String? fotoAsset;
 
   String get hargaLabel => 'Rp${_rupiah(harga)} / $satuan';
 }
@@ -110,7 +110,7 @@ const List<JenisSampahItem> _kDummyJenis = [
 class SetoranTab extends StatefulWidget {
   const SetoranTab({super.key, this.onBack, this.onLanjut});
 
-  /// Tombol panah kembali (biasanya pindah ke tab Beranda).
+  /// Tombol panah kembali
   final VoidCallback? onBack;
 
   /// Dipanggil saat "Lanjutkan ke Formulir Antrean" ditekan.

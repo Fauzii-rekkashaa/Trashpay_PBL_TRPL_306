@@ -2,10 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ApiService {
-  // Ganti sesuai device testing kamu:
-  // - Android Emulator  -> http://10.0.2.2:8000/api
-  // - HP fisik (1 WiFi)  -> http://IP_LAPTOP_KAMU:8000/api (misal http://192.168.1.5:8000/api)
-  // - Chrome/Web         -> http://localhost:8000/api
+
   static const String baseUrl = 'http://10.0.2.2:8000/api';
 
   final Dio _dio = Dio(BaseOptions(
@@ -40,8 +37,6 @@ class ApiService {
 
   // ===== AUTH =====
 
-  /// [identitas] = email ATAU nomor HP (login_screen sudah menormalkannya).
-  /// Dikirim sebagai kunci "identitas" -> backend LoginController membaca kunci ini.
   Future<Response> login(String identitas, String password) async {
     return await _dio.post('/login', data: {
       'identitas': identitas,

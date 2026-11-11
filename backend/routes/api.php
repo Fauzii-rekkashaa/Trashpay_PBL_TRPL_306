@@ -1,10 +1,9 @@
 <?php
 
-// Ganti isi routes/api.php dengan file ini.
-
 use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\SetoranVerifikasiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +27,8 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::post('/logout', [LoginController::class, 'logout']);
+
+    // Petugas/pengurus memverifikasi setoran (transaction + locking + audit)
+    Route::post('/setoran/{id}/verifikasi', SetoranVerifikasiController::class)
+        ->whereNumber('id');
 });

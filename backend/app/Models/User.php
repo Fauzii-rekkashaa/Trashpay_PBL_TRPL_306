@@ -48,6 +48,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'alamat' => 'encrypted',   // ATS poin 12: tersimpan terenkripsi di DB, otomatis terbaca di aplikasi
             'saldo_aktif' => 'decimal:2',
         ];
     }

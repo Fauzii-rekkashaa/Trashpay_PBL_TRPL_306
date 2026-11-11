@@ -3,7 +3,7 @@ class UserModel {
   final String nama;
   final String noHp;
   final String? email;
-  final String role; // warga, petugas, pengurus
+  final String role;
   final String? alamat;
   final double saldoAktif;
 

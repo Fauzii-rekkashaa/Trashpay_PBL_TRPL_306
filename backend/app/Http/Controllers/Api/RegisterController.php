@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Support\Audit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,7 @@ class RegisterController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
+        // Samakan format nomor: 0812-7098-4321 / +62812... -> 081270984321
         if ($request->has('no_hp')) {
             $request->merge(['no_hp' => $this->normalizePhone((string) $request->input('no_hp'))]);
         }
@@ -63,6 +65,8 @@ class RegisterController extends Controller
         $user->status_akun  = 'menunggu_verifikasi';
         $user->saldo_aktif  = 0;
         $user->save();
+
+        Audit::catat('register', 'user', $user->id, 'berhasil', userId: $user->id, detail: 'status awal: menunggu_verifikasi');
 
         return response()->json([
             'message' => 'Pendaftaran berhasil. Akun Anda menunggu verifikasi petugas.',

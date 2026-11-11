@@ -159,7 +159,6 @@ class _LogoBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Logo: ganti isi lingkaran dengan Image.asset('assets/images/logo.png') bila ada.
         Container(
           width: 156,
           height: 156,
@@ -289,9 +288,6 @@ class _EnvironmentCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Ilustrasi perumahan. Ganti dengan:
-          //   Image.asset('assets/images/plamo_garden.png', fit: BoxFit.cover)
-          // bila gambar ilustrasinya sudah ada di project.
           ClipRRect(
             borderRadius: BorderRadius.circular(18),
             child: SizedBox(
@@ -302,7 +298,6 @@ class _EnvironmentCard extends StatelessWidget {
                   Image.asset(
                     'assets/images/plamo_garden.png',
                     fit: BoxFit.cover,
-                    // Kalau gambar belum ada, tampil latar hijau cadangan.
                     errorBuilder: (_, __, ___) => Stack(
                       fit: StackFit.expand,
                       children: [
